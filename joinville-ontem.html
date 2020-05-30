@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Joinville - Ontem</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COVID Joinville</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown-header">Hoje:</li>
+<li>
+  <a href="index.html">Joinville</a>
+</li>
+<li>
+  <a href="santa-catarina.html">Santa Catarina</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-gear"></span>
+     
+    Ontem
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Local:</li>
+    <li>
+      <a href="joinville-ontem.html">Joinville</a>
+    </li>
+    <li>
+      <a href="santa-catarina-ontem.html">Santa Catarina</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Joinville - Ontem</h1>
+<h4 class="date">28/05/2020</h4>
+
+</div>
+
+
+<div id="gráficos" class="section level2 tabset tabset-fade">
+<h2>Gráficos</h2>
+<div id="todos-os-casos" class="section level3">
+<h3>Todos os casos</h3>
+<div id="htmlwidget-bb1bd869ef757956504b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bb1bd869ef757956504b">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,2,3,4,4,4,4,7,8,10,10,10,15,15,18,19,20,23,33,40,43,48,51,51,54,54,59,64,70,73,85,86,93,94,101,109,114,128,130,130,145,146,173,191,203,203,206,215,219,237,245,256,263,263,270,276,282,291,302,312,312,317,319,323,330,335,345,361,373,389,392,409],"text":["Dia: 01/mar<br /> NA","Dia: 02/mar<br /> NA","Dia: 03/mar<br /> NA","Dia: 04/mar<br /> NA","Dia: 05/mar<br /> NA","Dia: 06/mar<br /> NA","Dia: 07/mar<br /> NA","Dia: 08/mar<br /> NA","Dia: 09/mar<br /> NA","Dia: 10/mar<br /> NA","Dia: 11/mar<br /> NA","Dia: 12/mar<br /> NA","Dia: 13/mar<br /> NA","Dia: 14/mar<br /> NA","Dia: 15/mar<br /> NA","Dia: 16/mar<br /> NA","Dia: 17/mar<br />  1","Dia: 18/mar<br />  1","Dia: 19/mar<br />  2","Dia: 20/mar<br />  3","Dia: 21/mar<br />  4","Dia: 22/mar<br />  4","Dia: 23/mar<br />  4","Dia: 24/mar<br />  4","Dia: 25/mar<br />  7","Dia: 26/mar<br />  8","Dia: 27/mar<br /> 10","Dia: 28/mar<br /> 10","Dia: 29/mar<br /> 10","Dia: 30/mar<br /> 15","Dia: 31/mar<br /> 15","Dia: 01/abr<br /> 18","Dia: 02/abr<br /> 19","Dia: 03/abr<br /> 20","Dia: 04/abr<br /> 23","Dia: 05/abr<br /> 33","Dia: 06/abr<br /> 40","Dia: 07/abr<br /> 43","Dia: 08/abr<br /> 48","Dia: 09/abr<br /> 51","Dia: 10/abr<br /> 51","Dia: 11/abr<br /> 54","Dia: 12/abr<br /> 54","Dia: 13/abr<br /> 59","Dia: 14/abr<br /> 64","Dia: 15/abr<br /> 70","Dia: 16/abr<br /> 73","Dia: 17/abr<br /> 85","Dia: 18/abr<br /> 86","Dia: 19/abr<br /> 93","Dia: 20/abr<br /> 94","Dia: 21/abr<br />101","Dia: 22/abr<br />109","Dia: 23/abr<br />114","Dia: 24/abr<br />128","Dia: 25/abr<br />130","Dia: 26/abr<br />130","Dia: 27/abr<br />145","Dia: 28/abr<br />146","Dia: 29/abr<br />173","Dia: 30/abr<br />191","Dia: 01/mai<br />203","Dia: 02/mai<br />203","Dia: 03/mai<br />206","Dia: 04/mai<br />215","Dia: 05/mai<br />219","Dia: 06/mai<br />237","Dia: 07/mai<br />245","Dia: 08/mai<br />256","Dia: 09/mai<br />263","Dia: 10/mai<br />263","Dia: 11/mai<br />270","Dia: 12/mai<br />276","Dia: 13/mai<br />282","Dia: 14/mai<br />291","Dia: 15/mai<br />302","Dia: 16/mai<br />312","Dia: 17/mai<br />312","Dia: 18/mai<br />317","Dia: 19/mai<br />319","Dia: 20/mai<br />323","Dia: 21/mai<br />330","Dia: 22/mai<br />335","Dia: 23/mai<br />345","Dia: 24/mai<br />361","Dia: 25/mai<br />373","Dia: 26/mai<br />389","Dia: 27/mai<br />392","Dia: 28/mai<br />409"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(97,60,103,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(97,60,103,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,60,103,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":41.51100041511},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-20.45,429.45],"tickmode":"array","ticktext":["0","100","200","300","400"],"tickvals":[0,100,200,300,400],"categoryorder":"array","categoryarray":["0","100","200","300","400"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Total de casos","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16186ce04b9f":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"16187e017054":{"x":{},"y":{},"label":{},"text":{}},"1618411463d0":{"y":{}}},"cur_data":"16186ce04b9f","visdat":{"16186ce04b9f":["function (y) ","x"],"16187e017054":["function (y) ","x"],"1618411463d0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="casos-por-dia" class="section level3">
+<h3>Casos por dia</h3>
+<div id="htmlwidget-db63c4e111b03568c0c2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-db63c4e111b03568c0c2">{"x":{"data":[{"orientation":"v","width":[0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.699999999999996,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[1,0,1,1,1,0,0,0,3,1,2,0,0,5,0,3,1,1,3,10,7,3,5,3,0,3,0,5,5,6,3,12,1,7,1,7,8,5,14,2,0,15,1,27,18,12,0,3,9,4,18,8,11,7,0,7,6,6,9,11,10,0,5,2,4,7,5,10,16,12,16,3,17],"text":["Dia: 17/mar<br /> 1","Dia: 18/mar<br /> 0","Dia: 19/mar<br /> 1","Dia: 20/mar<br /> 1","Dia: 21/mar<br /> 1","Dia: 22/mar<br /> 0","Dia: 23/mar<br /> 0","Dia: 24/mar<br /> 0","Dia: 25/mar<br /> 3","Dia: 26/mar<br /> 1","Dia: 27/mar<br /> 2","Dia: 28/mar<br /> 0","Dia: 29/mar<br /> 0","Dia: 30/mar<br /> 5","Dia: 31/mar<br /> 0","Dia: 01/abr<br /> 3","Dia: 02/abr<br /> 1","Dia: 03/abr<br /> 1","Dia: 04/abr<br /> 3","Dia: 05/abr<br />10","Dia: 06/abr<br /> 7","Dia: 07/abr<br /> 3","Dia: 08/abr<br /> 5","Dia: 09/abr<br /> 3","Dia: 10/abr<br /> 0","Dia: 11/abr<br /> 3","Dia: 12/abr<br /> 0","Dia: 13/abr<br /> 5","Dia: 14/abr<br /> 5","Dia: 15/abr<br /> 6","Dia: 16/abr<br /> 3","Dia: 17/abr<br />12","Dia: 18/abr<br /> 1","Dia: 19/abr<br /> 7","Dia: 20/abr<br /> 1","Dia: 21/abr<br /> 7","Dia: 22/abr<br /> 8","Dia: 23/abr<br /> 5","Dia: 24/abr<br />14","Dia: 25/abr<br /> 2","Dia: 26/abr<br /> 0","Dia: 27/abr<br />15","Dia: 28/abr<br /> 1","Dia: 29/abr<br />27","Dia: 30/abr<br />18","Dia: 01/mai<br />12","Dia: 02/mai<br /> 0","Dia: 03/mai<br /> 3","Dia: 04/mai<br /> 9","Dia: 05/mai<br /> 4","Dia: 06/mai<br />18","Dia: 07/mai<br /> 8","Dia: 08/mai<br />11","Dia: 09/mai<br /> 7","Dia: 10/mai<br /> 0","Dia: 11/mai<br /> 7","Dia: 12/mai<br /> 6","Dia: 13/mai<br /> 6","Dia: 14/mai<br /> 9","Dia: 15/mai<br />11","Dia: 16/mai<br />10","Dia: 17/mai<br /> 0","Dia: 18/mai<br /> 5","Dia: 19/mai<br /> 2","Dia: 20/mai<br /> 4","Dia: 21/mai<br /> 7","Dia: 22/mai<br /> 5","Dia: 23/mai<br />10","Dia: 24/mai<br />16","Dia: 25/mai<br />12","Dia: 26/mai<br />16","Dia: 27/mai<br /> 3","Dia: 28/mai<br />17"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(97,60,103,1)","line":{"width":1.88976377952756,"color":"rgba(97,60,103,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":31.5346941198084,"l":36.1975923619759},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[13.015,92.985],"tickmode":"array","ticktext":["18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[18,34,50,66,82],"categoryorder":"array","categoryarray":["18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.35,28.35],"tickmode":"array","ticktext":["0","10","20"],"tickvals":[0,10,20],"categoryorder":"array","categoryarray":["0","10","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Novos casos","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16182e3e6606":{"x":{},"y":{},"fill":{},"label":{},"text":{},"type":"bar"}},"cur_data":"16182e3e6606","visdat":{"16182e3e6606":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="recuperados-vs.-mortes" class="section level3">
+<h3>Recuperados vs. Mortes</h3>
+<pre class="r"><code>lcrm1</code></pre>
+<div id="htmlwidget-72491ca5bb1eaa2a0a7a" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-72491ca5bb1eaa2a0a7a">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,4,5,5,5,6,6,6,6,6,6,8,8,10,10,11,13,13,13,13,13,14,14,15,15,15,15,18,20,21],"text":[" NA<br />Dia: 01/mar"," NA<br />Dia: 02/mar"," NA<br />Dia: 03/mar"," NA<br />Dia: 04/mar"," NA<br />Dia: 05/mar"," NA<br />Dia: 06/mar"," NA<br />Dia: 07/mar"," NA<br />Dia: 08/mar"," NA<br />Dia: 09/mar"," NA<br />Dia: 10/mar"," NA<br />Dia: 11/mar"," NA<br />Dia: 12/mar"," NA<br />Dia: 13/mar"," NA<br />Dia: 14/mar"," NA<br />Dia: 15/mar"," NA<br />Dia: 16/mar","  0<br />Dia: 17/mar","  0<br />Dia: 18/mar","  0<br />Dia: 19/mar","  0<br />Dia: 20/mar","  0<br />Dia: 21/mar","  0<br />Dia: 22/mar","  0<br />Dia: 23/mar","  0<br />Dia: 24/mar","  0<br />Dia: 25/mar","  0<br />Dia: 26/mar","  0<br />Dia: 27/mar","  0<br />Dia: 28/mar","  0<br />Dia: 29/mar","  1<br />Dia: 30/mar","  1<br />Dia: 31/mar","  1<br />Dia: 01/abr","  1<br />Dia: 02/abr","  1<br />Dia: 03/abr","  1<br />Dia: 04/abr","  1<br />Dia: 05/abr","  1<br />Dia: 06/abr","  1<br />Dia: 07/abr","  1<br />Dia: 08/abr","  1<br />Dia: 09/abr","  1<br />Dia: 10/abr","  1<br />Dia: 11/abr","  2<br />Dia: 12/abr","  2<br />Dia: 13/abr","  2<br />Dia: 14/abr","  2<br />Dia: 15/abr","  2<br />Dia: 16/abr","  2<br />Dia: 17/abr","  2<br />Dia: 18/abr","  2<br />Dia: 19/abr","  2<br />Dia: 20/abr","  2<br />Dia: 21/abr","  2<br />Dia: 22/abr","  2<br />Dia: 23/abr","  2<br />Dia: 24/abr","  3<br />Dia: 25/abr","  3<br />Dia: 26/abr","  3<br />Dia: 27/abr","  3<br />Dia: 28/abr","  3<br />Dia: 29/abr","  4<br />Dia: 30/abr","  5<br />Dia: 01/mai","  5<br />Dia: 02/mai","  5<br />Dia: 03/mai","  6<br />Dia: 04/mai","  6<br />Dia: 05/mai","  6<br />Dia: 06/mai","  6<br />Dia: 07/mai","  6<br />Dia: 08/mai","  6<br />Dia: 09/mai","  8<br />Dia: 10/mai","  8<br />Dia: 11/mai"," 10<br />Dia: 12/mai"," 10<br />Dia: 13/mai"," 11<br />Dia: 14/mai"," 13<br />Dia: 15/mai"," 13<br />Dia: 16/mai"," 13<br />Dia: 17/mai"," 13<br />Dia: 18/mai"," 13<br />Dia: 19/mai"," 14<br />Dia: 20/mai"," 14<br />Dia: 21/mai"," 15<br />Dia: 22/mai"," 15<br />Dia: 23/mai"," 15<br />Dia: 24/mai"," 15<br />Dia: 25/mai"," 18<br />Dia: 26/mai"," 20<br />Dia: 27/mai"," 21<br />Dia: 28/mai"],"type":"scatter","mode":"lines+markers","line":{"width":3.40157480314961,"color":"rgba(12,22,24,1)","dash":"solid"},"hoveron":"points","name":"MORTES","legendgroup":"MORTES","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(12,22,24,1)","opacity":1,"size":4.15748031496063,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(12,22,24,1)"}},"frame":null},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,10,11,12,12,12,13,13,13,13,13,19,19,20,22,22,22,22,22,22,31,31,31,34,34,34,34,37,38,38,38,38,38,38,44,47,84,84,100,100,100,105,105,148,164,164,164,164,164,164,191,206,206,206,206,207,257,296,308],"text":[" NA<br />Dia: 01/mar"," NA<br />Dia: 02/mar"," NA<br />Dia: 03/mar"," NA<br />Dia: 04/mar"," NA<br />Dia: 05/mar"," NA<br />Dia: 06/mar"," NA<br />Dia: 07/mar"," NA<br />Dia: 08/mar"," NA<br />Dia: 09/mar"," NA<br />Dia: 10/mar"," NA<br />Dia: 11/mar"," NA<br />Dia: 12/mar"," NA<br />Dia: 13/mar"," NA<br />Dia: 14/mar"," NA<br />Dia: 15/mar"," NA<br />Dia: 16/mar","  0<br />Dia: 17/mar","  0<br />Dia: 18/mar","  0<br />Dia: 19/mar","  0<br />Dia: 20/mar","  0<br />Dia: 21/mar","  0<br />Dia: 22/mar","  0<br />Dia: 23/mar","  0<br />Dia: 24/mar","  0<br />Dia: 25/mar","  0<br />Dia: 26/mar","  0<br />Dia: 27/mar","  0<br />Dia: 28/mar","  0<br />Dia: 29/mar","  0<br />Dia: 30/mar","  8<br />Dia: 31/mar"," 10<br />Dia: 01/abr"," 11<br />Dia: 02/abr"," 12<br />Dia: 03/abr"," 12<br />Dia: 04/abr"," 12<br />Dia: 05/abr"," 13<br />Dia: 06/abr"," 13<br />Dia: 07/abr"," 13<br />Dia: 08/abr"," 13<br />Dia: 09/abr"," 13<br />Dia: 10/abr"," 19<br />Dia: 11/abr"," 19<br />Dia: 12/abr"," 20<br />Dia: 13/abr"," 22<br />Dia: 14/abr"," 22<br />Dia: 15/abr"," 22<br />Dia: 16/abr"," 22<br />Dia: 17/abr"," 22<br />Dia: 18/abr"," 22<br />Dia: 19/abr"," 31<br />Dia: 20/abr"," 31<br />Dia: 21/abr"," 31<br />Dia: 22/abr"," 34<br />Dia: 23/abr"," 34<br />Dia: 24/abr"," 34<br />Dia: 25/abr"," 34<br />Dia: 26/abr"," 37<br />Dia: 27/abr"," 38<br />Dia: 28/abr"," 38<br />Dia: 29/abr"," 38<br />Dia: 30/abr"," 38<br />Dia: 01/mai"," 38<br />Dia: 02/mai"," 38<br />Dia: 03/mai"," 44<br />Dia: 04/mai"," 47<br />Dia: 05/mai"," 84<br />Dia: 06/mai"," 84<br />Dia: 07/mai","100<br />Dia: 08/mai","100<br />Dia: 09/mai","100<br />Dia: 10/mai","105<br />Dia: 11/mai","105<br />Dia: 12/mai","148<br />Dia: 13/mai","164<br />Dia: 14/mai","164<br />Dia: 15/mai","164<br />Dia: 16/mai","164<br />Dia: 17/mai","164<br />Dia: 18/mai","164<br />Dia: 19/mai","191<br />Dia: 20/mai","206<br />Dia: 21/mai","206<br />Dia: 22/mai","206<br />Dia: 23/mai","206<br />Dia: 24/mai","207<br />Dia: 25/mai","257<br />Dia: 26/mai","296<br />Dia: 27/mai","308<br />Dia: 28/mai"],"type":"scatter","mode":"lines+markers","line":{"width":3.40157480314961,"color":"rgba(0,70,67,1)","dash":"solid"},"hoveron":"points","name":"RECUPERADOS","legendgroup":"RECUPERADOS","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,70,67,1)","opacity":1,"size":4.15748031496063,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,70,67,1)"}},"frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":35.9480480150573,"l":45.4960564549606},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.2835201328352},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-15.4,323.4],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,100,200,300],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.2835201328352},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Recuperados x Mortes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937,"orientation":"h"},"annotations":[{"text":"Legenda","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"161814e3cb1":{"colour":{},"x":{},"y":{},"text":{},"label":{},"type":"scatter"},"161836f667b5":{"colour":{},"x":{},"y":{},"text":{},"label":{}}},"cur_data":"161814e3cb1","visdat":{"161814e3cb1":["function (y) ","x"],"161836f667b5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="gráficos-1" class="section level2 tabset tabset-fade">
+<h2>Gráficos</h2>
+<div id="recuperados" class="section level3">
+<h3>Recuperados</h3>
+<div id="htmlwidget-385faa5fd9f9d56f82d4" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-385faa5fd9f9d56f82d4">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,10,11,12,12,12,13,13,13,13,13,19,19,20,22,22,22,22,22,22,31,31,31,34,34,34,34,37,38,38,38,38,38,38,44,47,84,84,100,100,100,105,105,148,164,164,164,164,164,164,191,206,206,206,206,207,257,296,308],"text":["Dia: 01/mar<br /> NA","Dia: 02/mar<br /> NA","Dia: 03/mar<br /> NA","Dia: 04/mar<br /> NA","Dia: 05/mar<br /> NA","Dia: 06/mar<br /> NA","Dia: 07/mar<br /> NA","Dia: 08/mar<br /> NA","Dia: 09/mar<br /> NA","Dia: 10/mar<br /> NA","Dia: 11/mar<br /> NA","Dia: 12/mar<br /> NA","Dia: 13/mar<br /> NA","Dia: 14/mar<br /> NA","Dia: 15/mar<br /> NA","Dia: 16/mar<br /> NA","Dia: 17/mar<br />  0","Dia: 18/mar<br />  0","Dia: 19/mar<br />  0","Dia: 20/mar<br />  0","Dia: 21/mar<br />  0","Dia: 22/mar<br />  0","Dia: 23/mar<br />  0","Dia: 24/mar<br />  0","Dia: 25/mar<br />  0","Dia: 26/mar<br />  0","Dia: 27/mar<br />  0","Dia: 28/mar<br />  0","Dia: 29/mar<br />  0","Dia: 30/mar<br />  0","Dia: 31/mar<br />  8","Dia: 01/abr<br /> 10","Dia: 02/abr<br /> 11","Dia: 03/abr<br /> 12","Dia: 04/abr<br /> 12","Dia: 05/abr<br /> 12","Dia: 06/abr<br /> 13","Dia: 07/abr<br /> 13","Dia: 08/abr<br /> 13","Dia: 09/abr<br /> 13","Dia: 10/abr<br /> 13","Dia: 11/abr<br /> 19","Dia: 12/abr<br /> 19","Dia: 13/abr<br /> 20","Dia: 14/abr<br /> 22","Dia: 15/abr<br /> 22","Dia: 16/abr<br /> 22","Dia: 17/abr<br /> 22","Dia: 18/abr<br /> 22","Dia: 19/abr<br /> 22","Dia: 20/abr<br /> 31","Dia: 21/abr<br /> 31","Dia: 22/abr<br /> 31","Dia: 23/abr<br /> 34","Dia: 24/abr<br /> 34","Dia: 25/abr<br /> 34","Dia: 26/abr<br /> 34","Dia: 27/abr<br /> 37","Dia: 28/abr<br /> 38","Dia: 29/abr<br /> 38","Dia: 30/abr<br /> 38","Dia: 01/mai<br /> 38","Dia: 02/mai<br /> 38","Dia: 03/mai<br /> 38","Dia: 04/mai<br /> 44","Dia: 05/mai<br /> 47","Dia: 06/mai<br /> 84","Dia: 07/mai<br /> 84","Dia: 08/mai<br />100","Dia: 09/mai<br />100","Dia: 10/mai<br />100","Dia: 11/mai<br />105","Dia: 12/mai<br />105","Dia: 13/mai<br />148","Dia: 14/mai<br />164","Dia: 15/mai<br />164","Dia: 16/mai<br />164","Dia: 17/mai<br />164","Dia: 18/mai<br />164","Dia: 19/mai<br />164","Dia: 20/mai<br />191","Dia: 21/mai<br />206","Dia: 22/mai<br />206","Dia: 23/mai<br />206","Dia: 24/mai<br />206","Dia: 25/mai<br />207","Dia: 26/mai<br />257","Dia: 27/mai<br />296","Dia: 28/mai<br />308"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(0,70,67,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,70,67,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,70,67,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":41.51100041511},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-15.4,323.4],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,100,200,300],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Recuperados","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"161855c162e3":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"1618707b7163":{"x":{},"y":{},"label":{},"text":{}},"16185951312e":{"y":{}}},"cur_data":"161855c162e3","visdat":{"161855c162e3":["function (y) ","x"],"1618707b7163":["function (y) ","x"],"16185951312e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="casos-ativos" class="section level3">
+<h3>Casos Ativos</h3>
+<div id="htmlwidget-ac5c299d0f1c58f16f4f" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac5c299d0f1c58f16f4f">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,2,3,4,4,4,4,7,8,10,10,10,14,6,7,7,7,10,20,26,29,34,37,37,34,33,37,40,46,49,61,62,69,61,68,76,78,92,93,93,105,105,132,149,160,160,163,165,166,147,155,150,157,155,157,161,124,116,125,135,135,140,142,118,110,114,124,140,151,114,76,80],"text":["Dia: 01/mar<br /> NA","Dia: 02/mar<br /> NA","Dia: 03/mar<br /> NA","Dia: 04/mar<br /> NA","Dia: 05/mar<br /> NA","Dia: 06/mar<br /> NA","Dia: 07/mar<br /> NA","Dia: 08/mar<br /> NA","Dia: 09/mar<br /> NA","Dia: 10/mar<br /> NA","Dia: 11/mar<br /> NA","Dia: 12/mar<br /> NA","Dia: 13/mar<br /> NA","Dia: 14/mar<br /> NA","Dia: 15/mar<br /> NA","Dia: 16/mar<br /> NA","Dia: 17/mar<br />  1","Dia: 18/mar<br />  1","Dia: 19/mar<br />  2","Dia: 20/mar<br />  3","Dia: 21/mar<br />  4","Dia: 22/mar<br />  4","Dia: 23/mar<br />  4","Dia: 24/mar<br />  4","Dia: 25/mar<br />  7","Dia: 26/mar<br />  8","Dia: 27/mar<br /> 10","Dia: 28/mar<br /> 10","Dia: 29/mar<br /> 10","Dia: 30/mar<br /> 14","Dia: 31/mar<br />  6","Dia: 01/abr<br />  7","Dia: 02/abr<br />  7","Dia: 03/abr<br />  7","Dia: 04/abr<br /> 10","Dia: 05/abr<br /> 20","Dia: 06/abr<br /> 26","Dia: 07/abr<br /> 29","Dia: 08/abr<br /> 34","Dia: 09/abr<br /> 37","Dia: 10/abr<br /> 37","Dia: 11/abr<br /> 34","Dia: 12/abr<br /> 33","Dia: 13/abr<br /> 37","Dia: 14/abr<br /> 40","Dia: 15/abr<br /> 46","Dia: 16/abr<br /> 49","Dia: 17/abr<br /> 61","Dia: 18/abr<br /> 62","Dia: 19/abr<br /> 69","Dia: 20/abr<br /> 61","Dia: 21/abr<br /> 68","Dia: 22/abr<br /> 76","Dia: 23/abr<br /> 78","Dia: 24/abr<br /> 92","Dia: 25/abr<br /> 93","Dia: 26/abr<br /> 93","Dia: 27/abr<br />105","Dia: 28/abr<br />105","Dia: 29/abr<br />132","Dia: 30/abr<br />149","Dia: 01/mai<br />160","Dia: 02/mai<br />160","Dia: 03/mai<br />163","Dia: 04/mai<br />165","Dia: 05/mai<br />166","Dia: 06/mai<br />147","Dia: 07/mai<br />155","Dia: 08/mai<br />150","Dia: 09/mai<br />157","Dia: 10/mai<br />155","Dia: 11/mai<br />157","Dia: 12/mai<br />161","Dia: 13/mai<br />124","Dia: 14/mai<br />116","Dia: 15/mai<br />125","Dia: 16/mai<br />135","Dia: 17/mai<br />135","Dia: 18/mai<br />140","Dia: 19/mai<br />142","Dia: 20/mai<br />118","Dia: 21/mai<br />110","Dia: 22/mai<br />114","Dia: 23/mai<br />124","Dia: 24/mai<br />140","Dia: 25/mai<br />151","Dia: 26/mai<br />114","Dia: 27/mai<br /> 76","Dia: 28/mai<br /> 80"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(146,101,89,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(146,101,89,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(146,101,89,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":41.51100041511},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-8.3,174.3],"tickmode":"array","ticktext":["0","50","100","150"],"tickvals":[0,50,100,150],"categoryorder":"array","categoryarray":["0","50","100","150"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Casos ativos","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"161828f04a4":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"161816b471e4":{"x":{},"y":{},"label":{},"text":{}},"16184b325ad":{"y":{}}},"cur_data":"161828f04a4","visdat":{"161828f04a4":["function (y) ","x"],"161816b471e4":["function (y) ","x"],"16184b325ad":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mortes" class="section level3">
+<h3>Mortes</h3>
+<div id="htmlwidget-95b76855ca34cf5256d9" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-95b76855ca34cf5256d9">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,4,5,5,5,6,6,6,6,6,6,8,8,10,10,11,13,13,13,13,13,14,14,15,15,15,15,18,20,21],"text":["Dia: 01/mar<br />NA","Dia: 02/mar<br />NA","Dia: 03/mar<br />NA","Dia: 04/mar<br />NA","Dia: 05/mar<br />NA","Dia: 06/mar<br />NA","Dia: 07/mar<br />NA","Dia: 08/mar<br />NA","Dia: 09/mar<br />NA","Dia: 10/mar<br />NA","Dia: 11/mar<br />NA","Dia: 12/mar<br />NA","Dia: 13/mar<br />NA","Dia: 14/mar<br />NA","Dia: 15/mar<br />NA","Dia: 16/mar<br />NA","Dia: 17/mar<br /> 0","Dia: 18/mar<br /> 0","Dia: 19/mar<br /> 0","Dia: 20/mar<br /> 0","Dia: 21/mar<br /> 0","Dia: 22/mar<br /> 0","Dia: 23/mar<br /> 0","Dia: 24/mar<br /> 0","Dia: 25/mar<br /> 0","Dia: 26/mar<br /> 0","Dia: 27/mar<br /> 0","Dia: 28/mar<br /> 0","Dia: 29/mar<br /> 0","Dia: 30/mar<br /> 1","Dia: 31/mar<br /> 1","Dia: 01/abr<br /> 1","Dia: 02/abr<br /> 1","Dia: 03/abr<br /> 1","Dia: 04/abr<br /> 1","Dia: 05/abr<br /> 1","Dia: 06/abr<br /> 1","Dia: 07/abr<br /> 1","Dia: 08/abr<br /> 1","Dia: 09/abr<br /> 1","Dia: 10/abr<br /> 1","Dia: 11/abr<br /> 1","Dia: 12/abr<br /> 2","Dia: 13/abr<br /> 2","Dia: 14/abr<br /> 2","Dia: 15/abr<br /> 2","Dia: 16/abr<br /> 2","Dia: 17/abr<br /> 2","Dia: 18/abr<br /> 2","Dia: 19/abr<br /> 2","Dia: 20/abr<br /> 2","Dia: 21/abr<br /> 2","Dia: 22/abr<br /> 2","Dia: 23/abr<br /> 2","Dia: 24/abr<br /> 2","Dia: 25/abr<br /> 3","Dia: 26/abr<br /> 3","Dia: 27/abr<br /> 3","Dia: 28/abr<br /> 3","Dia: 29/abr<br /> 3","Dia: 30/abr<br /> 4","Dia: 01/mai<br /> 5","Dia: 02/mai<br /> 5","Dia: 03/mai<br /> 5","Dia: 04/mai<br /> 6","Dia: 05/mai<br /> 6","Dia: 06/mai<br /> 6","Dia: 07/mai<br /> 6","Dia: 08/mai<br /> 6","Dia: 09/mai<br /> 6","Dia: 10/mai<br /> 8","Dia: 11/mai<br /> 8","Dia: 12/mai<br />10","Dia: 13/mai<br />10","Dia: 14/mai<br />11","Dia: 15/mai<br />13","Dia: 16/mai<br />13","Dia: 17/mai<br />13","Dia: 18/mai<br />13","Dia: 19/mai<br />13","Dia: 20/mai<br />14","Dia: 21/mai<br />14","Dia: 22/mai<br />15","Dia: 23/mai<br />15","Dia: 24/mai<br />15","Dia: 25/mai<br />15","Dia: 26/mai<br />18","Dia: 27/mai<br />20","Dia: 28/mai<br />21"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(12,22,24,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(12,22,24,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(12,22,24,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":36.1975923619759},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.05,22.05],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Mortes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1618307b74a0":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"161879682aff":{"x":{},"y":{},"label":{},"text":{}},"1618759e3bc3":{"y":{}}},"cur_data":"1618307b74a0","visdat":{"1618307b74a0":["function (y) ","x"],"161879682aff":["function (y) ","x"],"1618759e3bc3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="mortes-por-dia" class="section level3">
+<h3>Mortes por dia</h3>
+<div id="htmlwidget-5e0007c43f06f7734ed6" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5e0007c43f06f7734ed6">{"x":{"data":[{"orientation":"v","width":[0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.699999999999996,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,2,0,2,0,1,2,0,0,0,0,1,0,1,0,0,0,3,2,1],"text":["Dia: 17/mar<br />0","Dia: 18/mar<br />0","Dia: 19/mar<br />0","Dia: 20/mar<br />0","Dia: 21/mar<br />0","Dia: 22/mar<br />0","Dia: 23/mar<br />0","Dia: 24/mar<br />0","Dia: 25/mar<br />0","Dia: 26/mar<br />0","Dia: 27/mar<br />0","Dia: 28/mar<br />0","Dia: 29/mar<br />0","Dia: 30/mar<br />1","Dia: 31/mar<br />0","Dia: 01/abr<br />0","Dia: 02/abr<br />0","Dia: 03/abr<br />0","Dia: 04/abr<br />0","Dia: 05/abr<br />0","Dia: 06/abr<br />0","Dia: 07/abr<br />0","Dia: 08/abr<br />0","Dia: 09/abr<br />0","Dia: 10/abr<br />0","Dia: 11/abr<br />0","Dia: 12/abr<br />1","Dia: 13/abr<br />0","Dia: 14/abr<br />0","Dia: 15/abr<br />0","Dia: 16/abr<br />0","Dia: 17/abr<br />0","Dia: 18/abr<br />0","Dia: 19/abr<br />0","Dia: 20/abr<br />0","Dia: 21/abr<br />0","Dia: 22/abr<br />0","Dia: 23/abr<br />0","Dia: 24/abr<br />0","Dia: 25/abr<br />1","Dia: 26/abr<br />0","Dia: 27/abr<br />0","Dia: 28/abr<br />0","Dia: 29/abr<br />0","Dia: 30/abr<br />1","Dia: 01/mai<br />1","Dia: 02/mai<br />0","Dia: 03/mai<br />0","Dia: 04/mai<br />1","Dia: 05/mai<br />0","Dia: 06/mai<br />0","Dia: 07/mai<br />0","Dia: 08/mai<br />0","Dia: 09/mai<br />0","Dia: 10/mai<br />2","Dia: 11/mai<br />0","Dia: 12/mai<br />2","Dia: 13/mai<br />0","Dia: 14/mai<br />1","Dia: 15/mai<br />2","Dia: 16/mai<br />0","Dia: 17/mai<br />0","Dia: 18/mai<br />0","Dia: 19/mai<br />0","Dia: 20/mai<br />1","Dia: 21/mai<br />0","Dia: 22/mai<br />1","Dia: 23/mai<br />0","Dia: 24/mai<br />0","Dia: 25/mai<br />0","Dia: 26/mai<br />3","Dia: 27/mai<br />2","Dia: 28/mai<br />1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(12,22,24,1)","line":{"width":1.88976377952756,"color":"rgba(12,22,24,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":31.5346941198084,"l":30.8841843088418},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[13.015,92.985],"tickmode":"array","ticktext":["18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[18,34,50,66,82],"categoryorder":"array","categoryarray":["18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15,3.15],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,1,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Novas mortes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16183c6e72d8":{"x":{},"y":{},"fill":{},"label":{},"text":{},"type":"bar"}},"cur_data":"16183c6e72d8","visdat":{"16183c6e72d8":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="hospitalizados" class="section level3">
+<h3>Hospitalizados</h3>
+<div id="htmlwidget-cb847371426606863f8b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cb847371426606863f8b">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,14,16,19,11,11,16,12,13,13,13,14,17,18,22,24,24,25,24,25,25,26,27,28,27,25,24,23,21,21,26,24,24,22,20,19,22,22,23,28,22,21,24],"text":["Dia: 01/mar<br />NA","Dia: 02/mar<br />NA","Dia: 03/mar<br />NA","Dia: 04/mar<br />NA","Dia: 05/mar<br />NA","Dia: 06/mar<br />NA","Dia: 07/mar<br />NA","Dia: 08/mar<br />NA","Dia: 09/mar<br />NA","Dia: 10/mar<br />NA","Dia: 11/mar<br />NA","Dia: 12/mar<br />NA","Dia: 13/mar<br />NA","Dia: 14/mar<br />NA","Dia: 15/mar<br />NA","Dia: 16/mar<br />NA","Dia: 17/mar<br />NA","Dia: 18/mar<br />NA","Dia: 19/mar<br />NA","Dia: 20/mar<br />NA","Dia: 21/mar<br />NA","Dia: 22/mar<br />NA","Dia: 23/mar<br />NA","Dia: 24/mar<br />NA","Dia: 25/mar<br />NA","Dia: 26/mar<br />NA","Dia: 27/mar<br />NA","Dia: 28/mar<br />NA","Dia: 29/mar<br />NA","Dia: 30/mar<br />NA","Dia: 31/mar<br />NA","Dia: 01/abr<br />NA","Dia: 02/abr<br />NA","Dia: 03/abr<br />NA","Dia: 04/abr<br />NA","Dia: 05/abr<br />NA","Dia: 06/abr<br />NA","Dia: 07/abr<br />NA","Dia: 08/abr<br />NA","Dia: 09/abr<br />NA","Dia: 10/abr<br />NA","Dia: 11/abr<br />NA","Dia: 12/abr<br />NA","Dia: 13/abr<br />NA","Dia: 14/abr<br />NA","Dia: 15/abr<br />NA","Dia: 16/abr<br />NA","Dia: 17/abr<br />14","Dia: 18/abr<br />16","Dia: 19/abr<br />19","Dia: 20/abr<br />11","Dia: 21/abr<br />11","Dia: 22/abr<br />16","Dia: 23/abr<br />12","Dia: 24/abr<br />13","Dia: 25/abr<br />13","Dia: 26/abr<br />13","Dia: 27/abr<br />14","Dia: 28/abr<br />17","Dia: 29/abr<br />18","Dia: 30/abr<br />22","Dia: 01/mai<br />24","Dia: 02/mai<br />24","Dia: 03/mai<br />25","Dia: 04/mai<br />24","Dia: 05/mai<br />25","Dia: 06/mai<br />25","Dia: 07/mai<br />26","Dia: 08/mai<br />27","Dia: 09/mai<br />28","Dia: 10/mai<br />27","Dia: 11/mai<br />25","Dia: 12/mai<br />24","Dia: 13/mai<br />23","Dia: 14/mai<br />21","Dia: 15/mai<br />21","Dia: 16/mai<br />26","Dia: 17/mai<br />24","Dia: 18/mai<br />24","Dia: 19/mai<br />22","Dia: 20/mai<br />20","Dia: 21/mai<br />19","Dia: 22/mai<br />22","Dia: 23/mai<br />22","Dia: 24/mai<br />23","Dia: 25/mai<br />28","Dia: 26/mai<br />22","Dia: 27/mai<br />21","Dia: 28/mai<br />24"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(187,202,203,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(187,202,203,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(187,202,203,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":36.1975923619759},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.4,29.4],"tickmode":"array","ticktext":["0","10","20"],"tickvals":[0,10,20],"categoryorder":"array","categoryarray":["0","10","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Pacientes hospitalizados","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16186bd24d62":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"161861232a4e":{"x":{},"y":{},"label":{},"text":{}},"1618150f66b2":{"y":{}}},"cur_data":"16186bd24d62","visdat":{"16186bd24d62":["function (y) ","x"],"161861232a4e":["function (y) ","x"],"1618150f66b2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="uti" class="section level3">
+<h3>UTI</h3>
+<div id="htmlwidget-8f9ee7200fe8e4a5f744" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8f9ee7200fe8e4a5f744">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,3,3,3,1,1,3,3,4,4,4,4,7,7,8,9,9,9,10,10,9,10,10,10,9,11,16,16,15,14,16,14,16,16,16,15,17,17,18,20,19,16,17],"text":["Dia: 01/mar<br />NA","Dia: 02/mar<br />NA","Dia: 03/mar<br />NA","Dia: 04/mar<br />NA","Dia: 05/mar<br />NA","Dia: 06/mar<br />NA","Dia: 07/mar<br />NA","Dia: 08/mar<br />NA","Dia: 09/mar<br />NA","Dia: 10/mar<br />NA","Dia: 11/mar<br />NA","Dia: 12/mar<br />NA","Dia: 13/mar<br />NA","Dia: 14/mar<br />NA","Dia: 15/mar<br />NA","Dia: 16/mar<br />NA","Dia: 17/mar<br />NA","Dia: 18/mar<br />NA","Dia: 19/mar<br />NA","Dia: 20/mar<br />NA","Dia: 21/mar<br />NA","Dia: 22/mar<br />NA","Dia: 23/mar<br />NA","Dia: 24/mar<br />NA","Dia: 25/mar<br />NA","Dia: 26/mar<br />NA","Dia: 27/mar<br />NA","Dia: 28/mar<br />NA","Dia: 29/mar<br />NA","Dia: 30/mar<br />NA","Dia: 31/mar<br />NA","Dia: 01/abr<br />NA","Dia: 02/abr<br />NA","Dia: 03/abr<br />NA","Dia: 04/abr<br />NA","Dia: 05/abr<br />NA","Dia: 06/abr<br />NA","Dia: 07/abr<br />NA","Dia: 08/abr<br />NA","Dia: 09/abr<br />NA","Dia: 10/abr<br />NA","Dia: 11/abr<br />NA","Dia: 12/abr<br />NA","Dia: 13/abr<br />NA","Dia: 14/abr<br />NA","Dia: 15/abr<br />NA","Dia: 16/abr<br />NA","Dia: 17/abr<br /> 3","Dia: 18/abr<br /> 3","Dia: 19/abr<br /> 3","Dia: 20/abr<br /> 1","Dia: 21/abr<br /> 1","Dia: 22/abr<br /> 3","Dia: 23/abr<br /> 3","Dia: 24/abr<br /> 4","Dia: 25/abr<br /> 4","Dia: 26/abr<br /> 4","Dia: 27/abr<br /> 4","Dia: 28/abr<br /> 7","Dia: 29/abr<br /> 7","Dia: 30/abr<br /> 8","Dia: 01/mai<br /> 9","Dia: 02/mai<br /> 9","Dia: 03/mai<br /> 9","Dia: 04/mai<br />10","Dia: 05/mai<br />10","Dia: 06/mai<br /> 9","Dia: 07/mai<br />10","Dia: 08/mai<br />10","Dia: 09/mai<br />10","Dia: 10/mai<br /> 9","Dia: 11/mai<br />11","Dia: 12/mai<br />16","Dia: 13/mai<br />16","Dia: 14/mai<br />15","Dia: 15/mai<br />14","Dia: 16/mai<br />16","Dia: 17/mai<br />14","Dia: 18/mai<br />16","Dia: 19/mai<br />16","Dia: 20/mai<br />16","Dia: 21/mai<br />15","Dia: 22/mai<br />17","Dia: 23/mai<br />17","Dia: 24/mai<br />18","Dia: 25/mai<br />20","Dia: 26/mai<br />19","Dia: 27/mai<br />16","Dia: 28/mai<br />17"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(52,84,209,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(52,84,209,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(52,84,209,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":36.1975923619759},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1,21],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Pacientes na UTI","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16181b466dd9":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"16182b314ec2":{"x":{},"y":{},"label":{},"text":{}},"161818072b0":{"y":{}}},"cur_data":"16181b466dd9","visdat":{"16181b466dd9":["function (y) ","x"],"16182b314ec2":["function (y) ","x"],"161818072b0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="testes" class="section level3">
+<h3>Testes</h3>
+<div id="htmlwidget-9c5d2954c4c606cdb89f" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9c5d2954c4c606cdb89f">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,37,49,72,75,76,80,106,120,137,142,146,146,146,174,182,191,195,199,212,249,290,318,340,364,365,391,391,437,448,464,476,503,533,581,580,601,636,655,703,714,717,750,774,805,892,943,943,983,1019,1058,1096,1151,1206,1226,1245,1290,1306,1335,1356,1377,1421,1423,1452,1463,1467,1502,1530,1545,1584,1613,1646,1656,1695],"text":["Dia: 01/mar<br />  NA","Dia: 02/mar<br />  NA","Dia: 03/mar<br />  NA","Dia: 04/mar<br />  NA","Dia: 05/mar<br />  NA","Dia: 06/mar<br />  NA","Dia: 07/mar<br />  NA","Dia: 08/mar<br />  NA","Dia: 09/mar<br />  NA","Dia: 10/mar<br />  NA","Dia: 11/mar<br />  NA","Dia: 12/mar<br />  NA","Dia: 13/mar<br />  NA","Dia: 14/mar<br />  NA","Dia: 15/mar<br />  NA","Dia: 16/mar<br />  NA","Dia: 17/mar<br />  37","Dia: 18/mar<br />  49","Dia: 19/mar<br />  72","Dia: 20/mar<br />  75","Dia: 21/mar<br />  76","Dia: 22/mar<br />  80","Dia: 23/mar<br /> 106","Dia: 24/mar<br /> 120","Dia: 25/mar<br /> 137","Dia: 26/mar<br /> 142","Dia: 27/mar<br /> 146","Dia: 28/mar<br /> 146","Dia: 29/mar<br /> 146","Dia: 30/mar<br /> 174","Dia: 31/mar<br /> 182","Dia: 01/abr<br /> 191","Dia: 02/abr<br /> 195","Dia: 03/abr<br /> 199","Dia: 04/abr<br /> 212","Dia: 05/abr<br /> 249","Dia: 06/abr<br /> 290","Dia: 07/abr<br /> 318","Dia: 08/abr<br /> 340","Dia: 09/abr<br /> 364","Dia: 10/abr<br /> 365","Dia: 11/abr<br /> 391","Dia: 12/abr<br /> 391","Dia: 13/abr<br /> 437","Dia: 14/abr<br /> 448","Dia: 15/abr<br /> 464","Dia: 16/abr<br /> 476","Dia: 17/abr<br /> 503","Dia: 18/abr<br /> 533","Dia: 19/abr<br /> 581","Dia: 20/abr<br /> 580","Dia: 21/abr<br /> 601","Dia: 22/abr<br /> 636","Dia: 23/abr<br /> 655","Dia: 24/abr<br /> 703","Dia: 25/abr<br /> 714","Dia: 26/abr<br /> 717","Dia: 27/abr<br /> 750","Dia: 28/abr<br /> 774","Dia: 29/abr<br /> 805","Dia: 30/abr<br /> 892","Dia: 01/mai<br /> 943","Dia: 02/mai<br /> 943","Dia: 03/mai<br /> 983","Dia: 04/mai<br />1019","Dia: 05/mai<br />1058","Dia: 06/mai<br />1096","Dia: 07/mai<br />1151","Dia: 08/mai<br />1206","Dia: 09/mai<br />1226","Dia: 10/mai<br />1245","Dia: 11/mai<br />1290","Dia: 12/mai<br />1306","Dia: 13/mai<br />1335","Dia: 14/mai<br />1356","Dia: 15/mai<br />1377","Dia: 16/mai<br />1421","Dia: 17/mai<br />1423","Dia: 18/mai<br />1452","Dia: 19/mai<br />1463","Dia: 20/mai<br />1467","Dia: 21/mai<br />1502","Dia: 22/mai<br />1530","Dia: 23/mai<br />1545","Dia: 24/mai<br />1584","Dia: 25/mai<br />1613","Dia: 26/mai<br />1646","Dia: 27/mai<br />1656","Dia: 28/mai<br />1695"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(245,172,114,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(245,172,114,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(245,172,114,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":46.8244084682441},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-84.75,1779.75],"tickmode":"array","ticktext":["0","500","1000","1500"],"tickvals":[0,500,1000,1500],"categoryorder":"array","categoryarray":["0","500","1000","1500"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Testes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"16181a1b30e7":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"1618533e4a6":{"x":{},"y":{},"label":{},"text":{}},"161850827ac2":{"y":{}}},"cur_data":"16181a1b30e7","visdat":{"16181a1b30e7":["function (y) ","x"],"1618533e4a6":["function (y) ","x"],"161850827ac2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="testes-por-dia" class="section level3">
+<h3>Testes por dia</h3>
+<div id="htmlwidget-c22ebbbc48a169ce5425" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c22ebbbc48a169ce5425">{"x":{"data":[{"orientation":"v","width":[0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.700000000000003,0.699999999999996,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989,0.699999999999989],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[37,12,23,3,1,4,26,14,17,5,4,0,0,28,8,9,4,4,13,37,41,28,22,24,1,26,0,46,11,16,12,27,30,48,1,21,35,19,48,11,3,33,24,31,87,51,0,40,36,39,38,55,55,20,19,45,16,29,21,21,44,2,29,11,4,35,28,15,39,29,33,10,39],"text":["Dia: 17/mar<br />37","Dia: 18/mar<br />12","Dia: 19/mar<br />23","Dia: 20/mar<br /> 3","Dia: 21/mar<br /> 1","Dia: 22/mar<br /> 4","Dia: 23/mar<br />26","Dia: 24/mar<br />14","Dia: 25/mar<br />17","Dia: 26/mar<br /> 5","Dia: 27/mar<br /> 4","Dia: 28/mar<br /> 0","Dia: 29/mar<br /> 0","Dia: 30/mar<br />28","Dia: 31/mar<br /> 8","Dia: 01/abr<br /> 9","Dia: 02/abr<br /> 4","Dia: 03/abr<br /> 4","Dia: 04/abr<br />13","Dia: 05/abr<br />37","Dia: 06/abr<br />41","Dia: 07/abr<br />28","Dia: 08/abr<br />22","Dia: 09/abr<br />24","Dia: 10/abr<br /> 1","Dia: 11/abr<br />26","Dia: 12/abr<br /> 0","Dia: 13/abr<br />46","Dia: 14/abr<br />11","Dia: 15/abr<br />16","Dia: 16/abr<br />12","Dia: 17/abr<br />27","Dia: 18/abr<br />30","Dia: 19/abr<br />48","Dia: 20/abr<br />-1","Dia: 21/abr<br />21","Dia: 22/abr<br />35","Dia: 23/abr<br />19","Dia: 24/abr<br />48","Dia: 25/abr<br />11","Dia: 26/abr<br /> 3","Dia: 27/abr<br />33","Dia: 28/abr<br />24","Dia: 29/abr<br />31","Dia: 30/abr<br />87","Dia: 01/mai<br />51","Dia: 02/mai<br /> 0","Dia: 03/mai<br />40","Dia: 04/mai<br />36","Dia: 05/mai<br />39","Dia: 06/mai<br />38","Dia: 07/mai<br />55","Dia: 08/mai<br />55","Dia: 09/mai<br />20","Dia: 10/mai<br />19","Dia: 11/mai<br />45","Dia: 12/mai<br />16","Dia: 13/mai<br />29","Dia: 14/mai<br />21","Dia: 15/mai<br />21","Dia: 16/mai<br />44","Dia: 17/mai<br /> 2","Dia: 18/mai<br />29","Dia: 19/mai<br />11","Dia: 20/mai<br /> 4","Dia: 21/mai<br />35","Dia: 22/mai<br />28","Dia: 23/mai<br />15","Dia: 24/mai<br />39","Dia: 25/mai<br />29","Dia: 26/mai<br />33","Dia: 27/mai<br />10","Dia: 28/mai<br />39"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(245,172,114,1)","line":{"width":1.88976377952756,"color":"rgba(245,172,114,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":31.5346941198084,"l":36.1975923619759},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[13.015,92.985],"tickmode":"array","ticktext":["18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[18,34,50,66,82],"categoryorder":"array","categoryarray":["18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-5.4,91.4],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Novos testes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"161843905c3":{"x":{},"y":{},"fill":{},"label":{},"text":{},"type":"bar"}},"cur_data":"161843905c3","visdat":{"161843905c3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="testes-aguardando-res." class="section level3">
+<h3>Testes aguardando res.</h3>
+<div id="htmlwidget-2b8bad1167db178d1e3b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2b8bad1167db178d1e3b">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89],"y":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,50,60,57,68,69,65,49,42,32,34,45,58,62,45,66,68,99,107,103,77,66,54,42,46,61,35,35,26,25,24,61,55,63,38,39,51,33,43,31,35,48,26,58,57,49,36,51,29,29,37,48,37,31,35,45,24,35,33,40,65,21,26,21,35,50,38,25,20,32,25,25,34,414],"text":["Dia: 01/mar<br /> NA","Dia: 02/mar<br /> NA","Dia: 03/mar<br /> NA","Dia: 04/mar<br /> NA","Dia: 05/mar<br /> NA","Dia: 06/mar<br /> NA","Dia: 07/mar<br /> NA","Dia: 08/mar<br /> NA","Dia: 09/mar<br /> NA","Dia: 10/mar<br /> NA","Dia: 11/mar<br /> NA","Dia: 12/mar<br /> NA","Dia: 13/mar<br /> NA","Dia: 14/mar<br /> NA","Dia: 15/mar<br /> NA","Dia: 16/mar<br /> NA","Dia: 17/mar<br /> 50","Dia: 18/mar<br /> 60","Dia: 19/mar<br /> 57","Dia: 20/mar<br /> 68","Dia: 21/mar<br /> 69","Dia: 22/mar<br /> 65","Dia: 23/mar<br /> 49","Dia: 24/mar<br /> 42","Dia: 25/mar<br /> 32","Dia: 26/mar<br /> 34","Dia: 27/mar<br /> 45","Dia: 28/mar<br /> 58","Dia: 29/mar<br /> 62","Dia: 30/mar<br /> 45","Dia: 31/mar<br /> 66","Dia: 01/abr<br /> 68","Dia: 02/abr<br /> 99","Dia: 03/abr<br />107","Dia: 04/abr<br />103","Dia: 05/abr<br /> 77","Dia: 06/abr<br /> 66","Dia: 07/abr<br /> 54","Dia: 08/abr<br /> 42","Dia: 09/abr<br /> 46","Dia: 10/abr<br /> 61","Dia: 11/abr<br /> 35","Dia: 12/abr<br /> 35","Dia: 13/abr<br /> 26","Dia: 14/abr<br /> 25","Dia: 15/abr<br /> 24","Dia: 16/abr<br /> 61","Dia: 17/abr<br /> 55","Dia: 18/abr<br /> 63","Dia: 19/abr<br /> 38","Dia: 20/abr<br /> 39","Dia: 21/abr<br /> 51","Dia: 22/abr<br /> 33","Dia: 23/abr<br /> 43","Dia: 24/abr<br /> 31","Dia: 25/abr<br /> 35","Dia: 26/abr<br /> 48","Dia: 27/abr<br /> 26","Dia: 28/abr<br /> 58","Dia: 29/abr<br /> 57","Dia: 30/abr<br /> 49","Dia: 01/mai<br /> 36","Dia: 02/mai<br /> 51","Dia: 03/mai<br /> 29","Dia: 04/mai<br /> 29","Dia: 05/mai<br /> 37","Dia: 06/mai<br /> 48","Dia: 07/mai<br /> 37","Dia: 08/mai<br /> 31","Dia: 09/mai<br /> 35","Dia: 10/mai<br /> 45","Dia: 11/mai<br /> 24","Dia: 12/mai<br /> 35","Dia: 13/mai<br /> 33","Dia: 14/mai<br /> 40","Dia: 15/mai<br /> 65","Dia: 16/mai<br /> 21","Dia: 17/mai<br /> 26","Dia: 18/mai<br /> 21","Dia: 19/mai<br /> 35","Dia: 20/mai<br /> 50","Dia: 21/mai<br /> 38","Dia: 22/mai<br /> 25","Dia: 23/mai<br /> 20","Dia: 24/mai<br /> 32","Dia: 25/mai<br /> 25","Dia: 26/mai<br /> 25","Dia: 27/mai<br /> 34","Dia: 28/mai<br />414"],"type":"scatter","mode":"lines+markers","line":{"width":3.77952755905512,"color":"rgba(106,117,77,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(106,117,77,1)","opacity":1,"size":4.53543307086614,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(106,117,77,1)"}},"frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":29.3280171721839,"l":41.51100041511},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4,93.4],"tickmode":"array","ticktext":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"tickvals":[2,18,34,50,66,82],"categoryorder":"array","categoryarray":["02/mar","18/mar","03/abr","19/abr","05/mai","21/mai"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":9.29846409298464},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-20.7,434.7],"tickmode":"array","ticktext":["0","100","200","300","400"],"tickvals":[0,100,200,300,400],"categoryorder":"array","categoryarray":["0","100","200","300","400"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":10.6268161062682},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Testes aguardando resultado","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"161822d7aa":{"x":{},"y":{},"label":{},"text":{},"type":"scatter"},"161857d7ec2":{"x":{},"y":{},"label":{},"text":{}},"16181932468e":{"y":{}}},"cur_data":"161822d7aa","visdat":{"161822d7aa":["function (y) ","x"],"161857d7ec2":["function (y) ","x"],"16181932468e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="informações-relevantes" class="section level2 sidebar">
+<h2>Informações Relevantes</h2>
+<ul>
+<li><p>Primeiro caso no Brasil: 26 de fevereiro</p></li>
+<li><p>Primeiro caso em Joinville: 13 de março</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th></th>
+<th>Casos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Confirmados</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Recuperados</td>
+<td></td>
+<td>308</td>
+</tr>
+<tr class="odd">
+<td>Internados</td>
+<td></td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>Iso. Domiciliar</td>
+<td></td>
+<td>56</td>
+</tr>
+<tr class="odd">
+<td>Mortes</td>
+<td></td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td></td>
+<td>409</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Internados</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Em UTI</td>
+<td></td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>Em Enfermaria</td>
+<td></td>
+<td>07</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td></td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Notificados</td>
+<td></td>
+<td>2109</td>
+</tr>
+<tr class="even">
+<td>Descartados</td>
+<td></td>
+<td>1286</td>
+</tr>
+<tr class="odd">
+<td>Aguardando res.</td>
+<td></td>
+<td>414</td>
+</tr>
+</tbody>
+</table>
+<p>(até 28/05 19:00)</p>
+<p><a href="https://www.joinville.sc.gov.br/publicacoes/dados-casos-coronavirus-municipio-de-joinville/">Fonte</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>Dados</th>
+<th></th>
+<th>Demográficos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Local</strong></td>
+<td></td>
+<td><strong>População</strong></td>
+</tr>
+<tr class="even">
+<td>Joinvile</td>
+<td></td>
+<td>590 466</td>
+</tr>
+<tr class="odd">
+<td>Santa Catarina</td>
+<td></td>
+<td>7 164 788</td>
+</tr>
+<tr class="even">
+<td>Brasil</td>
+<td></td>
+<td>210 147 125</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://cidades.ibge.gov.br/">Fonte</a></p>
+<p>_</p>
+<p><a href="https://www.saude.gov.br/saude-de-a-z/coronavirus">Informações e Prevenção</a></p>
+<p>_</p>
+<ul>
+<li>Autores:</li>
+</ul>
+<p><a href="http://cunhazera.github.io/">Gabriel Cunha</a></p>
+<p><a href="https://marvellousmathemat.wixsite.com/mysite">Miqueias Brikalski</a></p>
+<p>Contato: <a href="mailto:miqueias.19@gmail.com" class="email">miqueias.19@gmail.com</a></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
