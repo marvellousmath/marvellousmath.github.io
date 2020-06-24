@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2020-06-24" />
+
+<title>Article - Draft</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="b_joinvillemap.html">JOINVILLE MAP</a>
+</li>
+<li>
+  <a href="c_ttest.html">TEST RESULTS - T-TEST</a>
+</li>
+<li>
+  <a href="d_anova.html">TEST RESULTS - ANOVA</a>
+</li>
+<li>
+  <a href="e_article_draft.html">ARTICLE - DRAFT</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Article - Draft</h1>
+<h4 class="date">2020-06-24</h4>
+
+</div>
+
+
+<div id="article---draft" class="section level2">
+<h2><strong>Article - Draft </strong></h2>
+<hr />
+</div>
+<div id="assessment-of-water-consumption-in-households-using-regression-tree" class="section level2">
+<h2><strong>Assessment of water consumption in households using regression tree</strong></h2>
+<p><strong>Abstract</strong> Understanding the factors influencing urban water consumption is essential for managing water resources. Domestic water consumption represents a significant portion of urban water consumption. The objective of this paper is to evaluate how socioeconomic variables related to residents and constructive variables related to households influence the domestic water consumption in the city of Joinville. Monthly water consumption, constructive characteristics and socioeconomic data from 394 households were analyzed. The analysis includes detailed descriptive statistics of monthly water consumption per household and daily per capita water consumption, in addition to socioeconomic and constructive variables. The analysis of descriptive statistics enhanced the understanding of the effects of the independent variables on the dependent variables monthly water consumption and per capita water consumption. Also, regression tree was applied to the data set. Amidst the findings, the variable income had a positive correlation with water consumption, whereas the number of members of a household had a negative correlation with per capita water consumption.</p>
+<p><strong>1. Introduction</strong></p>
+<p>Sustainable management of the urban consumption of natural resources is possible not just by knowing how much resource consumption occurs, where and when it occurs, but knowing the mechanisms influencing consumption is also indispensable (Voskamp et al; 2020).</p>
+<p>Voskamp et al. (2020) present a literature review on the factors influencing urban consumption of natural resources. According to the authors, factors influencing water consumption within a city can be categorized as demographic, economic, such as level of economic development, political, such as rules and regulations, cultural, such as environmental awareness, technological, such as technological inventions, spatial, such as population density and building type, infrastructural, such as size of the supply network, resources characteristics, such as price and availability, personal consumer characteristics, such as income level, and decision making, such as behavior.</p>
+<p>However, all these factors may be strongly correlated. For example, price, income and education influence water conservation behavior (Koop, Dorssena &amp; Brouwer; 2019).</p>
+<p>Intense urban expansion and socio-demographic changes in households, are major causes of rising water demand in developed countries (Garcia, 2013). The goal of this study is to evaluate which factors have a significant impact in water consumption in the city of Joinville, using socioeconomic variables related to residents and constructive variables related to households and applying regression tree.</p>
+<p><strong>2. Material and methods</strong></p>
+<p>This study was realized analyzing data from households in Joinville, Southern Brazil. Joinville is the largest city in Santa Catarina State and has the greatest GDP (IBGE,2017), with a Human Development Index (HDI) of 0.809 (IBGE, 2010). The estimated population of the city is 590,466 (IBGE, 2019), spread in an area of 1127.946km2 (IBGE, 2018).</p>
+<p>The sample consists in 394 households spread through the different regions of the city.Figure 1 shows the 394 households spread throughout the city using dots. It also differentiates the households by color, accordingly with the per capita consumption.</p>
+<p><img src="e_article_draft_files/figure-html/unnamed-chunk-1-1.png" width="100%" /> <em>Figure 1 - Map of Joinville city, with the households represented as dots colored accordinglt with the percapita water consumption</em></p>
+<p>The application of the survey was made accordingly with the population of each region; thus, the sample has the same distribution within the regions as the population. Water consumption was analyzed as a dependent variable. The monthly water consumption (in m3 per month) data was provided by the municipal water supply company. The per capita water consumption (in liters per person per day) was calculated and used as a dependent variable. Data related with building features and demographic characteristics of the sample were obtained through the survey. Thus, 57 independent variables were analyzed, evaluating the correlation between each variable and monthly and per capita water consumption.</p>
+<p>The survey was designed considering factors that the scientific literature suggests to relevant when evaluating the impact on urban water consumption. Thus, the survey was structured in four parts: 1) where the residential unity is located and its surroundings; 2) socioeconomic and demographic aspects of the inhabitants; 3) constructive characteristics and equipment installed in the building; 4) water consumption behavior. The questions were of two types: multiple choice questions and short answer question receiving numerical data as input.</p>
+<p><strong>3. Theory/calculation</strong></p>
+<p><strong>4. Results</strong></p>
+<p>The number of inhabitants in the household is one of the variables that had a significant influence on the monthly and per capita consumption. Figure 1 shows the box plot for both cases.</p>
+<p><img src="e_article_draft_files/figure-html/unnamed-chunk-2-1.png" width="100%" /> <em>Figure 1 - Box plot of monthly and per capita consumption considering the number of inhabitants</em></p>
+<p>The greater is the number of inhabitants, the higher is the average monthly consumption. Still, the number of inhabitants has the opposite effect on per capita consumption. The Anova test was applied, confirming the statistical significance of the effect (Pr &lt; 0.15). One explanation might be that a household unit has an intrinsic demand for water that allows it to be kept livable, demand which is distributed between the inhabitants when the per capita consumption is calculated. Hence, the greater is the number of inhabitants, the lesser is the effect of this demand in the per capita consumption. Other variable may contribute to this result for per capita consumption, which will be discussed along with the result of this variables.</p>
+<p>Figure 2 shows box plot comparing consumption of houses that have a pool and houses that do not have one.</p>
+<p><img src="e_article_draft_files/figure-html/unnamed-chunk-3-1.png" width="100%" /> <em>Figure 2 - Monthly and per capita consumption considering houses having or not having a pool</em></p>
+<p>Both monthly and per capita consumption are higher for houses that have a pool. The two-sample t-test was conducted and confirmed the difference when the house has a pool in the monthly (p&lt;0.15) and per capita (p&lt;0.15) consumption.</p>
+<p>The age of the building also showed itself to be a significant factor that impacts urban water consumption in Joinville city. Figure 3 shows boxplot comparing consumption of buildings that are until 10 years old and building that are older than 10 years.</p>
+<p>The box plot presented in Figure 3 suggests that water consumption is higher when the building is older than 10 years. The two-sample t-test conducted confirmed that age of the building is an important factor for monthly (p&lt;0.15) and per capita (p&lt;0.15) water consumption.</p>
+<p><strong>5. Discussion</strong></p>
+<p><strong>6. Conclusions</strong></p>
+<p><strong>References</strong></p>
+<p>VanDecar J.C., Russo R.M., James D.E., Ambeh W.B., Franke M. (2003). Aseismic continuation of the Lesser Antilles slab beneath northeastern Venezuela. Journal of Geophysical Research, <a href="https://doi.org/10.1029/2001JB000884" class="uri">https://doi.org/10.1029/2001JB000884</a>.</p>
+<p>Garcia X., Muro M., Ribas A., Llausàs A., Jeffrey P., Saurí D. (2013). Attitudes and behaviours towards water conservation on the Mediterranean coast: the role of socio-demographic and place-attachment factors. Journal Water International, <a href="https://doi.org/10.1080/02508060.2013.794641" class="uri">https://doi.org/10.1080/02508060.2013.794641</a>.</p>
+<p>IBGE.InstitutoBrasileirodeGeograﬁaeEstatística. 2010. Available online: <a href="https://cidades.ibge.gov.br/brasil/" class="uri">https://cidades.ibge.gov.br/brasil/</a> sc/joinville/panorama (accessed on 06 of May of 2020).</p>
+<p>IBGE.InstitutoBrasileirodeGeograﬁaeEstatística. 2017. Available online: <a href="https://cidades.ibge.gov.br/brasil/" class="uri">https://cidades.ibge.gov.br/brasil/</a> sc/joinville/panorama (accessed on 06 of May of 2020).</p>
+<p>IBGE.InstitutoBrasileirodeGeograﬁaeEstatística. 2018. Available online: <a href="https://cidades.ibge.gov.br/brasil/" class="uri">https://cidades.ibge.gov.br/brasil/</a> sc/joinville/panorama (accessed on 06 of May of 2020).</p>
+<p>IBGE.InstitutoBrasileirodeGeograﬁaeEstatística. 2019. Available online: <a href="https://cidades.ibge.gov.br/brasil/" class="uri">https://cidades.ibge.gov.br/brasil/</a> sc/joinville/panorama (accessed on 06 of May of 2020).</p>
+<p>Koopa S.H.A., Van Dorssena A.J., Brouwera S. (2019). Enhancing domestic water conservation behaviour: A review of empirical studies on influencing tactics. Journal of Environmental Management, <a href="https://doi.org/10.1016/j.jenvman.2019.06.126" class="uri">https://doi.org/10.1016/j.jenvman.2019.06.126</a>.</p>
+<p>Voskampab I. M., Suttona N. B., Stremkebc S., Rijnaartsa H. H. M. (2020). A systematic review of factors influencing spatiotemporal variability in urban water and energy consumption. Journal of Cleaner Production, <a href="https://doi.org/10.1016/j.jclepro.2020.120310" class="uri">https://doi.org/10.1016/j.jclepro.2020.120310</a>.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
