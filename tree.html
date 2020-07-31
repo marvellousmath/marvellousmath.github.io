@@ -12,7 +12,7 @@
 
 <meta name="date" content="2020-07-30" />
 
-<title>Assessment of water consumption in households using regression tree</title>
+<title>Regression tree</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -299,26 +299,91 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Assessment of water consumption in households using regression tree</h1>
+<h1 class="title toc-ignore">Regression tree</h1>
 <h4 class="date">2020-07-30</h4>
 
 </div>
 
 
-<div id="joinville-city-map" class="section level2">
-<h2><a href="b_joinvillemap.html"><strong>JOINVILLE CITY MAP</strong></a></h2>
+<hr />
+<div id="tree-for-monthly-consumption" class="section level2">
+<h2>Tree for monthly consumption</h2>
+<p><img src="tree_files/figure-html/unnamed-chunk-5-1.png" width="100%" /></p>
+<hr />
+<div id="error" class="section level3">
+<h3>Error</h3>
+<pre><code>## 
+## Regression tree:
+## rpart(formula = CONSUMO_BRUTO ~ ., data = dados, method = &quot;anova&quot;)
+## 
+## Variables actually used in tree construction:
+## [1] AreaTotImovel Banheira      Escolaridade  IdadeImov     Moradores    
+## [6] Piscina      
+## 
+## Root node error: 17740/394 = 45.025
+## 
+## n= 394 
+## 
+##          CP nsplit rel error  xerror     xstd
+## 1  0.184782      0   1.00000 1.00495 0.107720
+## 2  0.059919      1   0.81522 0.82123 0.092195
+## 3  0.042299      2   0.75530 0.82826 0.096419
+## 4  0.031167      3   0.71300 0.84436 0.090394
+## 5  0.030857      4   0.68183 0.82517 0.090222
+## 6  0.024273      5   0.65098 0.82607 0.090045
+## 7  0.019553      6   0.62670 0.81965 0.089784
+## 8  0.014013      7   0.60715 0.81266 0.087597
+## 9  0.010557      8   0.59314 0.78681 0.080725
+## 10 0.010000     10   0.57202 0.78978 0.080807</code></pre>
+<p><img src="tree_files/figure-html/unnamed-chunk-6-1.png" width="100%" /><img src="tree_files/figure-html/unnamed-chunk-6-2.png" width="100%" /></p>
+<hr />
 </div>
-<div id="test-results---t-test" class="section level2">
-<h2><a href="c_ttest.html"><strong>TEST RESULTS - T-TEST</strong></a></h2>
+<div id="prunned-tree" class="section level3">
+<h3>Prunned tree</h3>
+<p><img src="tree_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
+<hr />
 </div>
-<div id="test-results---anova" class="section level2">
-<h2><a href="d_anova.html"><strong>TEST RESULTS - ANOVA</strong></a></h2>
 </div>
-<div id="tree" class="section level2">
-<h2><a href="tree.html"><strong>TREE</strong></a></h2>
+<div id="three-for-per-capita-consumption" class="section level2">
+<h2>Three for per capita consumption</h2>
+<p><img src="tree_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
+<hr />
+<div id="error-1" class="section level3">
+<h3>Error</h3>
+<pre><code>## 
+## Regression tree:
+## rpart(formula = dados$INDICADOR_CONSUMO ~ ., data = dados, method = &quot;anova&quot;)
+## 
+## Variables actually used in tree construction:
+## [1] AreaPerCapita  AreaTotImovel  Crianca        RendaFamil     RendaPerCapita
+## [6] Tipologia     
+## 
+## Root node error: 1354340/394 = 3437.4
+## 
+## n= 394 
+## 
+##          CP nsplit rel error  xerror     xstd
+## 1  0.088312      0   1.00000 1.00560 0.115993
+## 2  0.026291      1   0.91169 0.98172 0.112838
+## 3  0.023358      2   0.88540 1.01270 0.112037
+## 4  0.021866      3   0.86204 1.01992 0.112376
+## 5  0.020976      5   0.81831 1.01992 0.112376
+## 6  0.013726      6   0.79733 1.00844 0.108032
+## 7  0.012082      7   0.78360 1.00690 0.104261
+## 8  0.011651      8   0.77152 0.99972 0.104089
+## 9  0.011175      9   0.75987 1.00913 0.104199
+## 10 0.011086     10   0.74870 0.98940 0.091427
+## 11 0.010616     11   0.73761 0.98913 0.091591
+## 12 0.010431     14   0.70576 0.98870 0.091598
+## 13 0.010366     15   0.69533 0.99029 0.091722
+## 14 0.010000     16   0.68497 1.00007 0.092102</code></pre>
+<p><img src="tree_files/figure-html/unnamed-chunk-11-1.png" width="100%" /><img src="tree_files/figure-html/unnamed-chunk-11-2.png" width="100%" /></p>
+<hr />
 </div>
-<div id="article---draft" class="section level2">
-<h2><a href="e_article_draft.html"><strong>ARTICLE - DRAFT</strong></a></h2>
+<div id="prunned-tree-1" class="section level3">
+<h3>Prunned tree</h3>
+<p><img src="tree_files/figure-html/unnamed-chunk-13-1.png" width="100%" /></p>
+</div>
 </div>
 
 
