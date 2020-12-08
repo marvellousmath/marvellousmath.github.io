@@ -1,0 +1,28 @@
+---
+  title: "Regulatory framework"
+
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+library(pracma)
+
+f1 <- list(family = "Arial, sans-serif",
+           size = 18,
+           color = "grey"
+)
+f2 <- list(
+  family = "Old Standard TT, serif",
+  size = 14,
+  color = "black"
+)
+leg <- list(x = 0.5, y = 1.2, orientation = 'h', font = list(family = "sans-serif",size = 12))
+
+options(scipen=9999, digits = 5)
+```
+

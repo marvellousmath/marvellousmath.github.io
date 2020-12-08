@@ -11,7 +11,7 @@
 
 
 
-<title>Geotechnical Engineering</title>
+<title>Saturated flow</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -292,16 +292,74 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Geotechnical Engineering</h1>
+<h1 class="title toc-ignore">Saturated flow</h1>
 
 </div>
 
 
-<div id="geoenvironmental-engineering" class="section level2">
-<h2><a href="GE.html"><strong>Geoenvironmental Engineering</strong></a></h2>
+<div id="bernoullis-theorem" class="section level2">
+<h2>Bernoulli’s theorem</h2>
+<p><span class="math inline">\(h = h_z + h_p + h_v\)</span></p>
+<p><span class="math inline">\(h = z + u/\gamma + v_s^{2}/(2g)\)</span></p>
+<hr />
 </div>
-<div id="consolidationshearing-properties-of-soils" class="section level2">
-<h2><a href="CSPS.html"><strong>Consolidation/Shearing Properties of Soils</strong></a></h2>
+<div id="darcys-law" class="section level2">
+<h2>Darcy’s Law</h2>
+<p><span class="math inline">\(v = - k i\)</span> <span class="math inline">\(Q = - k iA\)</span> <span class="math inline">\(Q = - k (\Delta h/L)A\)</span></p>
+<ul>
+<li>Seepage velocity<br />
+<span class="math inline">\(v_s = - k i/n\)</span></li>
+</ul>
+<div id="factors-affecting-hydraulic-conductivity" class="section level3">
+<h3>Factors affecting hydraulic conductivity</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Particle size and gradation</strong></li>
+</ol>
+<ul>
+<li>The surface area of the particles is directly affected by their sizes (the smaller the particle, the greater its surface area), resulting in more friction between the liquid and the particles. Therefore, a soil composed of smaller particles tend to have lower hydraulic conductivity.</li>
+<li>Hazen’s formula for sands: <span class="math inline">\(k=D_{10}^{2}\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Void ratio</strong></li>
+</ol>
+<ul>
+<li>The void ratio is basically a measurement of the space available for the water to flow. Hence, the lower the void ratio, the lower the hydraulic conductivity.</li>
+<li>Kozeny-Carmen: <span class="math inline">\(k=cD^{2}\frac{-\gamma}{\mu}\frac{e^{3}}{(1+e)}S^{3}\)</span></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Mineralogical composition</strong></li>
+</ol>
+<ul>
+<li>Depending on the minerals compounding the clay, its interaction with water is different. The main factor in the clay-water interaction is the diffuse double layer (DDL), more specifically with its thickness, which is significant dependent on the mineralogy of the clay.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Degree of saturation</strong></li>
+</ol>
+<ul>
+<li>The water flows much easier through the voids already occupied by water. More over, when the soil is unsaturated, suction is developed and the water needs to overcome the suction in order expel the air in the voids and flow through it.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Compaction water content</strong></li>
+</ol>
+<ul>
+<li>The <em>compaction water content</em> affects the <em>thickness of the diffuse double layer</em>, which in its turn determines the <em>soil fabric</em> after compaction. The <em>diffuse double layer</em> depends on the the availability if water to develop. Lower <em>compaction water content</em> means lower <em>thickness of the diffuse double layer</em>. As a result the <em>soil fabric</em> is more <em>flocculated</em>, which increases significantly the <em>hydraulic conductivity</em>. If the <em>compaction water content</em> is higher, the <em>thickness of the diffuse double layer</em> will be higher, which means a <em>dispersed fabric</em>, resulting in a lower <em>hydraulic conductivity</em>.</li>
+<li>Lower compaction water content also results in the development of suction, which, as mention previously, turns out to reduce considerably the hydraulic conductivity. This is not permanent however, because once the soil gets saturated, the suction is lost and there is an increase in the hydraylic conductivity.</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li><p><strong>Method of compaction</strong></p></li>
+<li><p><strong>Hydration of clay after mixing</strong></p></li>
+<li><p><strong>Desiccation cracks</strong></p></li>
+</ol>
+<ul>
+<li>If the soil layer shrinks, resulting in desiccation crack, preferable flow paths are created, resulting in areas of very high hydraulic conductivity.</li>
+</ul>
+<ol start="9" style="list-style-type: decimal">
+<li><strong>Permeant</strong></li>
+</ol>
+<ul>
+<li>It turns out that the thickness of the <strong>diffuse double layer</strong> is largely impacted by the dielectric constant of the liquid flowing through the soil. Therefore, the hydraulic conductivity of <em>high plasticity clay</em> is enormously affected by the permeant.</li>
+</ul>
+</div>
 </div>
 
 
